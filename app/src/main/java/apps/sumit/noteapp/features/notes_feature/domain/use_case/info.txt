@@ -1,0 +1,3 @@
+A single thing the user does is called an use case.
+
+view-models call use cases.

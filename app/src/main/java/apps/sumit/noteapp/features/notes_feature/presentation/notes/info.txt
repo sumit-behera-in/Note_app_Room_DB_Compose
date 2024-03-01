@@ -1,0 +1,1 @@
+view model will take the results of the use cases
