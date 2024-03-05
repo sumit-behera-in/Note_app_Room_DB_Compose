@@ -1,6 +1,7 @@
 package apps.sumit.noteapp.features.notes_feature.presentation.notes
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInVertically
@@ -134,8 +135,18 @@ fun NotesScreen(
 
             AnimatedVisibility(
                 visible = state.isOrderSectionVisible,
-                enter = fadeIn() + slideInVertically(),
-                exit = fadeOut() + slideOutVertically()
+                enter = fadeIn(
+                    animationSpec = tween(
+                        150,
+                        0
+                    )
+                ) + slideInVertically(animationSpec = tween(450, 10)),
+                exit = fadeOut(
+                    animationSpec = tween(
+                        250,
+                        0
+                    )
+                ) + slideOutVertically(animationSpec = tween(450, 10))
             ) {
 
                 OrderSection(
