@@ -51,7 +51,7 @@ fun AddEditNoteScreen(
 
     val noteBackgroundAnimatable = remember {
         Animatable(
-            Color(if (noteColor != -1) noteColor else viewModel.noteColor.value)
+            Color(if (noteColor != -1) noteColor else viewModel.noteColor.intValue)
         )
     }
 
@@ -78,6 +78,7 @@ fun AddEditNoteScreen(
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(
+                modifier = Modifier.clip(CircleShape),
                 onClick = { viewModel.onEvent(AddEditNoteEvents.SaveNote) },
                 containerColor = MaterialTheme.colorScheme.primary
             ) {
@@ -143,7 +144,7 @@ fun AddEditNoteScreen(
                 },
                 isHintVisible = titleState.isHintVisible,
                 isSingleLine = true,
-                textStyle = MaterialTheme.typography.labelLarge
+                textStyle = MaterialTheme.typography.headlineLarge
             )
 
             Spacer(modifier = Modifier.height(16.dp))
