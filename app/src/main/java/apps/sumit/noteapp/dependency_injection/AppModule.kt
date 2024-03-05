@@ -5,7 +5,9 @@ import androidx.room.Room
 import apps.sumit.noteapp.features.notes_feature.data.data_source.NoteDataBase
 import apps.sumit.noteapp.features.notes_feature.data.repository.NoteRepositoryCache
 import apps.sumit.noteapp.features.notes_feature.domain.repository.NoteRepository
+import apps.sumit.noteapp.features.notes_feature.domain.use_case.AddNoteUseCase
 import apps.sumit.noteapp.features.notes_feature.domain.use_case.DeleteNoteUseCase
+import apps.sumit.noteapp.features.notes_feature.domain.use_case.GetNoteByIdUseCase
 import apps.sumit.noteapp.features.notes_feature.domain.use_case.GetNotesUseCase
 import apps.sumit.noteapp.features.notes_feature.domain.use_case.NotesUseCases
 import dagger.Module
@@ -40,7 +42,9 @@ object AppModule {
     fun provideNoteUseCases(repository: NoteRepository): NotesUseCases {
         return NotesUseCases(
             getNotesUseCase = GetNotesUseCase(repository),
-            deleteNoteUseCase = DeleteNoteUseCase(repository)
+            deleteNoteUseCase = DeleteNoteUseCase(repository),
+            addNoteUseCase = AddNoteUseCase(repository),
+            getNoteByIdUseCase = GetNoteByIdUseCase(repository)
         )
     }
 }
