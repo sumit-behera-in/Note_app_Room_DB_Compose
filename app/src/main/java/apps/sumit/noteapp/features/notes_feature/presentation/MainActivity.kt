@@ -14,6 +14,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import apps.sumit.noteapp.features.notes_feature.presentation.add_edit_note.AddEditNoteScreen
 import apps.sumit.noteapp.features.notes_feature.presentation.notes.NotesScreen
+import apps.sumit.noteapp.features.notes_feature.presentation.splashScreen.SplashScreen
 import apps.sumit.noteapp.features.notes_feature.presentation.util.Screen
 import apps.sumit.noteapp.ui.theme.CleanArchitectureNoteAppTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -30,11 +31,15 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
                     NavHost(
                         navController = navController,
-                        startDestination = Screen.NoteScreen.route
+                        startDestination = Screen.SplashScreen.route
                     ) {
 
                         composable(route = Screen.NoteScreen.route) {
                             NotesScreen(navController = navController)
+                        }
+
+                        composable(route = Screen.SplashScreen.route){
+                            SplashScreen(navController = navController)
                         }
 
                         composable(
