@@ -1,0 +1,1 @@
+it is a simple demo app and all the data is stored in local database so no need to fear privacy violation.
